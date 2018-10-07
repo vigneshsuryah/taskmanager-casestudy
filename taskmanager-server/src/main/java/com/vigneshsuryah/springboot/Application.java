@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.vigneshsuryah.springboot;
 
 import org.springframework.boot.SpringApplication;
@@ -11,10 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-/**
- * @author vigneshsuryah
- *
- */
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 @EnableSwagger2
 @ComponentScan(basePackages = "com.vigneshsuryah.springboot")

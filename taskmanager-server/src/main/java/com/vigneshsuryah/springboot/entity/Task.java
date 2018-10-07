@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,10 +16,10 @@ public class Task {
 
 	 @Id
 	 @Column(name="task_id")
-	 @GeneratedValue
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long taskId;
 	 
-	@Column(name="task_name")
+	 @Column(name="task_name")
 	 private String taskName;
 	 
 	 @Column(name="start_date")
@@ -33,7 +34,7 @@ public class Task {
 	 @Column(name="status")
 	 private String status;
 	 
-	 @ManyToOne(cascade={CascadeType.ALL})
+	 @ManyToOne(cascade={CascadeType.MERGE})
 	 @JoinColumn(name="parent_task_id", insertable = true, updatable = true)
 	 private Task parentTask;
 	 
