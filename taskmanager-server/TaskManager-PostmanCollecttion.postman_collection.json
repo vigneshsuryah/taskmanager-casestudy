@@ -1,0 +1,192 @@
+{
+	"id": "278c06fc-43a8-b9cd-f475-e6b96ffc8767",
+	"name": "TaskManager-PostmanCollecttion",
+	"description": "",
+	"order": [
+		"fdcd3e2a-8e59-7efd-6858-71867b271e16",
+		"731a641a-7488-98b0-8ab4-a9352d6c270b",
+		"5509df7c-a644-9146-2ffb-1092acd46111",
+		"b5ede10b-1546-70a8-506a-6696615e738b",
+		"56be6c7c-90ce-702e-bd0a-870dca89f275"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1538928157718,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "5509df7c-a644-9146-2ffb-1092acd46111",
+			"headers": "Accept: */*\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "*/*",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/api/tasks",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538930398681,
+			"name": "Add Task",
+			"description": "",
+			"collectionId": "278c06fc-43a8-b9cd-f475-e6b96ffc8767",
+			"responses": [],
+			"rawModeData": "{\r\n    \"taskName\": \"task 555 2\",\r\n    \"startDate\": \"2018-10-11\",\r\n    \"endDate\": \"2018-10-16\",\r\n    \"priority\": \"30\",\r\n    \"status\": \"I\",\r\n    \"parentTask\": {\r\n        \"taskId\": 8,\r\n        \"taskName\": \"task new r\",\r\n        \"startDate\": \"2018-10-16\",\r\n        \"endDate\": \"2018-10-21\",\r\n        \"priority\": \"16\",\r\n        \"status\": \"I\",\r\n        \"parentTask\": {\r\n            \"taskId\": 4,\r\n            \"taskName\": \"task 3\",\r\n            \"startDate\": \"2018-10-11\",\r\n            \"endDate\": \"2018-10-16\",\r\n            \"priority\": \"1\",\r\n            \"status\": \"A\",\r\n            \"parentTask\": null\r\n        }\r\n    }\r\n}"
+		},
+		{
+			"id": "56be6c7c-90ce-702e-bd0a-870dca89f275",
+			"headers": "Accept: */*\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "*/*",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/api/tasks/8",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538931454681,
+			"name": "End Task",
+			"description": "",
+			"collectionId": "278c06fc-43a8-b9cd-f475-e6b96ffc8767",
+			"responses": [],
+			"rawModeData": "{\n    \"taskId\": 8,\n    \"taskName\": \"task hello 6\",\n    \"startDate\": \"2018-10-16\",\n    \"endDate\": \"2018-10-21\",\n    \"priority\": \"16\",\n    \"status\": \"A\",\n    \"parentTask\": {\n        \"taskId\": 15,\n        \"taskName\": \"task new\",\n        \"startDate\": \"2018-10-11\",\n        \"endDate\": \"2018-10-16\",\n        \"priority\": \"25\",\n        \"status\": \"A\",\n        \"parentTask\": {\n            \"taskId\": 4,\n            \"taskName\": \"task 4\",\n            \"startDate\": \"2018-10-13\",\n            \"endDate\": \"2018-10-23\",\n            \"priority\": \"0\",\n            \"status\": \"A\",\n            \"parentTask\": null\n        }\n    }\n}"
+		},
+		{
+			"id": "731a641a-7488-98b0-8ab4-a9352d6c270b",
+			"headers": "Accept: */*\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "*/*",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/api/tasks/3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538928459016,
+			"name": "Get Task By taskId",
+			"description": "",
+			"collectionId": "278c06fc-43a8-b9cd-f475-e6b96ffc8767",
+			"responses": []
+		},
+		{
+			"id": "b5ede10b-1546-70a8-506a-6696615e738b",
+			"headers": "Accept: */*\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "*/*",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/api/tasks/8",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538930879669,
+			"name": "Update Task",
+			"description": "",
+			"collectionId": "278c06fc-43a8-b9cd-f475-e6b96ffc8767",
+			"responses": [],
+			"rawModeData": "{\r\n    \"taskId\": 8,\r\n    \"taskName\": \"task hello 6\",\r\n    \"startDate\": \"2018-10-16\",\r\n    \"endDate\": \"2018-10-21\",\r\n    \"priority\": \"16\",\r\n    \"status\": \"A\",\r\n    \"parentTask\": {\r\n        \"taskId\": 15,\r\n        \"taskName\": \"task new\",\r\n        \"startDate\": \"2018-10-11\",\r\n        \"endDate\": \"2018-10-16\",\r\n        \"priority\": \"25\",\r\n        \"status\": \"A\",\r\n        \"parentTask\": {\r\n            \"taskId\": 4,\r\n            \"taskName\": \"task 4\",\r\n            \"startDate\": \"2018-10-13\",\r\n            \"endDate\": \"2018-10-23\",\r\n            \"priority\": \"0\",\r\n            \"status\": \"A\",\r\n            \"parentTask\": null\r\n        }\r\n    }\r\n}"
+		},
+		{
+			"id": "fdcd3e2a-8e59-7efd-6858-71867b271e16",
+			"headers": "Accept: */*\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "*/*",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/api/tasks",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538928222578,
+			"name": "Get All Tasks",
+			"description": "",
+			"collectionId": "278c06fc-43a8-b9cd-f475-e6b96ffc8767",
+			"responses": []
+		}
+	]
+}
