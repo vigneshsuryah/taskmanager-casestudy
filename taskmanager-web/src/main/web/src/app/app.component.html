@@ -1,36 +1,29 @@
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Task Manager</a>
-</nav>
-
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="/addtask">
-              Add Task
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              View Task
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <router-outlet (activate)="onActivate($event, outlet)" #outlet></router-outlet>
-      </div>
-    </main>
-
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow flex-nowrap justify-content-between align-items-center">
+  <div class="col-4 pt-1"></div>
+  <div class="col-4 text-center">
+    <h3 class="my-0 mr-md-auto text-secondary">Task Manager</h3>
   </div>
+  <div class="col-4 pt-1"></div>
 </div>
 
-<div>
+<div class="container">
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex">
+      <a class="h5 p-2 text-muted navig active-nav" id="add-task" href="#" (click)=addTask()>Add Task</a>
+      <a class="h5 p-2 text-muted navig" id="view-task" href="#" (click)=viewTask()>View Task</a>
+    </nav>
+  </div>
+
+</div>
+
+<main role="main" class="container">
+  
+    <router-outlet (activate)="onActivate($event, outlet)" #outlet></router-outlet>
+  
+</main>
+
+<div> 
 	<div class="modal-backdropP"></div>
 	<div class="modalP">
 		<div id="fountainG">

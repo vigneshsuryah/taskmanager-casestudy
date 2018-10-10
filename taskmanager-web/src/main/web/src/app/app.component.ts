@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params} from '@angular/router';
+declare var jQuery:any;
 
 @Component({
   selector: 'app-root',
@@ -17,4 +18,17 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     
   }
+
+  addTask(){
+    jQuery(".navig").removeClass('active-nav');
+    jQuery("#add-task").addClass('active-nav');
+    this.router.navigate(['/addtask']);
+  }
+
+  viewTask(){
+    jQuery(".navig").removeClass('active-nav');
+    jQuery("#view-task").addClass('active-nav');
+    this.router.navigate(['/viewtask']);
+  }
+
 }
