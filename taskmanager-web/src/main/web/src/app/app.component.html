@@ -9,18 +9,21 @@
 <div class="container">
 
   <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex">
-      <a class="h5 p-2 text-muted navig active-nav" id="add-task" href="#" (click)=addTask()>Add Task</a>
-      <a class="h5 p-2 text-muted navig" id="view-task" href="#" (click)=viewTask()>View Task</a>
+    <nav class="nav d-flex ml-auto text-center"> 
+				<div class="col-4 pt-1"></div>
+				<div class="col-4 text-center">
+						<a class="h5 p-2 text-center text-muted navig active-nav" id="add-task" href="javascript:void(0);" (click)=addTask()>Add Task</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a class="h5 p-2 text-center text-muted navig" id="view-task" href="javascript:void(0);" (click)=viewTask()>View Task</a>
+				</div>
+				<div class="col-4 pt-1"></div>
     </nav>
   </div>
 
 </div>
 
 <main role="main" class="container">
-  
     <router-outlet (activate)="onActivate($event, outlet)" #outlet></router-outlet>
-  
 </main>
 
 <div> 

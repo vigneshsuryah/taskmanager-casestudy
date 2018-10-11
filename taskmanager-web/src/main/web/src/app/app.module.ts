@@ -6,6 +6,7 @@ import { AddTaskModule } from './addtask/addtask.module';
 import { RequestOptions, RequestMethod, Headers } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'; 
 import { FormsModule } from '@angular/forms';
+import { NgbModal, NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 export class MyOptions extends RequestOptions {
   constructor() {
@@ -23,7 +24,7 @@ export class MyOptions extends RequestOptions {
     AppComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, AddTaskModule
+    BrowserModule, FormsModule, AppRoutingModule, AddTaskModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
   ],
   exports: [
     FormsModule
