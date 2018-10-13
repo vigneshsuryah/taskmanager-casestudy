@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModule, NgbTypeaheadModule, NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  imports: [AddTaskRoutingModule, FormsModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()],
+  imports: [AddTaskRoutingModule, FormsModule, CommonModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()],
   declarations: [AddTaskComponent],
   exports: [AddTaskComponent, FormsModule],
   providers: [appService]

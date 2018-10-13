@@ -44,14 +44,21 @@
                             {{ date.day }}
                           </span>
                         </ng-template>
-                        <br/><br/>
-                        Start Date: <span class="font-italic text-primary">{{fromDate.year}}-{{fromDate.month}}-{{fromDate.day}}</span>
-                        End Date: <span class="font-italic text-primary">{{toDate.year}}-{{toDate.month}}-{{toDate.day}}</span>
+                        <hr/>
+                        Start Date: <span class="font-italic text-primary">{{convertDateJsonToString(fromDate)}}</span><br/>
+                        End Date: <span class="font-italic text-primary">{{convertDateJsonToString(toDate)}}</span>
                         
                     </div>
                 </div>
-                
-                <button type="submit" class="btn btn-success">Add Task</button>
+                <div class="form-group row">
+                    <div class="col-sm-2 col-form-label"></div>
+                    <div class="col-sm-10 row">
+                        <div class="input-group">
+                            <button type="submit" class="btn btn-success mx-3">Add Task</button>
+                            <button type="button" class="btn btn-info mx-5" (click)=resetButton()>Reset</button>
+                        </div>
+                    </div>
+                </div>
             </form> 
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2"></div>

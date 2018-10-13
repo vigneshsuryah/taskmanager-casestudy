@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AddTaskModule } from './addtask/addtask.module';
 import { RequestOptions, RequestMethod, Headers } from '@angular/http';
@@ -24,7 +24,7 @@ export class MyOptions extends RequestOptions {
     AppComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, AddTaskModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
+    BrowserModule, FormsModule, CommonModule, AppRoutingModule, AddTaskModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
   ],
   exports: [
     FormsModule
