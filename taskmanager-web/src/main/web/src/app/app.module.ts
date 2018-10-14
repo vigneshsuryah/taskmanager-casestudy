@@ -7,6 +7,9 @@ import { RequestOptions, RequestMethod, Headers } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'; 
 import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { appService } from './service/index';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
 
 export class MyOptions extends RequestOptions {
   constructor() {
@@ -24,7 +27,7 @@ export class MyOptions extends RequestOptions {
     AppComponent
   ],
   imports: [
-    BrowserModule, FormsModule, CommonModule, AppRoutingModule, AddTaskModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
+    BrowserModule, FormsModule, CommonModule, AppRoutingModule, AddTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
   ],
   exports: [
     FormsModule
@@ -33,7 +36,8 @@ export class MyOptions extends RequestOptions {
     {
     provide: RequestOptions,
     useClass: MyOptions
-    }
+    },
+    appService
   ],
   bootstrap: [AppComponent]
 })
