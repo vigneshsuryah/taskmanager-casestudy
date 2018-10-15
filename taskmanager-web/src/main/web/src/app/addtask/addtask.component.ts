@@ -27,6 +27,8 @@ export class AddTaskComponent implements OnInit, OnDestroy {
   toDate: NgbDate;
   calendarToday: NgbCalendar
   alltaskList : any = [];
+  errorShow : boolean = false;
+  errorMessage : string = '';
 
   constructor(calendar: NgbCalendar, config: NgbDatepickerConfig, appService : appService) {
     this.fromDate = calendar.getToday();
@@ -44,6 +46,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
       "taskName":"",
       "priority":"15",
       "parentTaskId":"",
+      "parentTaskName":"",
       "startDate":new Date(),
       "endDate":new Date()
     };
@@ -56,7 +59,15 @@ export class AddTaskComponent implements OnInit, OnDestroy {
   formatter = (value: any) => value.taskName || '';
 
   addTask(task: any){
-    alert(JSON.stringify(task));
+    var parentTaskNameVal = jQuery("#parentTask").val();
+    this.errorShow = false;
+    this.errorMessage = '';
+    if(parentTaskNameVal !== '' && this.task.parentTaskId === ''){
+      this.errorShow = true;
+      this.errorMessage = 'Select Parent Task from the list available. Either the task name is edited or you have typed a custom task name.';
+    }else{
+      
+    }
   }
 
   parentTaskSearch = (text$: Observable<string>) => {
@@ -83,6 +94,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
       "taskName":"",
       "priority":"15",
       "parentTaskId":"",
+      "parentTaskName":"",
       "startDate":new Date(),
       "endDate":new Date()
     };
