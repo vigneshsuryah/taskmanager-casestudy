@@ -28,8 +28,8 @@
             <div class="form-group col-xs-12 col-sm-3 col-md-3">
                 <label for="startDate">Start Date</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="startDate" [readonly]="true"
-                            name="startDate" [(ngModel)]="task.startDate" dateFormat="dd-MM-yyyy" ngbDatepicker #startDate="ngbDatepicker" (dateSelect)="onDateSelectPicker($event,'start')"/>
+                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="startDate" [readonly]="true"
+                            name="startDate" [(ngModel)]="task.startDate" ngbDatepicker #startDate="ngbDatepicker" (dateSelect)="onDateSelectPicker($event,'start')"/>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary fa fa-calendar" (click)="startDate.toggle()" type="button"></button>
                     </div>
@@ -38,8 +38,8 @@
             <div class="form-group col-xs-12 col-sm-3 col-md-3">
                 <label for="endDate">End Date</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="endDate" [readonly]="true"
-                            name="endDate" [(ngModel)]="task.endDate" dateFormat="dd-MM-yyyy" ngbDatepicker #endDate="ngbDatepicker" (dateSelect)="onDateSelectPicker($event,'end')"/>
+                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="endDate" [readonly]="true"
+                            name="endDate" [(ngModel)]="task.endDate" ngbDatepicker #endDate="ngbDatepicker" (dateSelect)="onDateSelectPicker($event,'end')"/>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary fa fa-calendar" (click)="endDate.toggle()" type="button"></button>
                     </div>
