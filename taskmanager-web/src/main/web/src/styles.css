@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.actionWidth{
+    width:220px !important;
+}
+
 .slider {
     -webkit-appearance: none;
     width: 100%;

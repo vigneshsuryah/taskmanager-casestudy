@@ -1,4 +1,11 @@
+<form #viewTaskForm="ngForm" novalidate >
 <div class="row my-3 p-3 bg-white rounded box-shadow">
+        <br/><br/>    
+        <div class="row col-xs-12 col-sm-12 col-md-12">
+            <div class="h6 mx-3">Enter the field to Search for your task.</div>
+        </div>
+        <hr/>
+        <br/><br/>
         <div class="row col-xs-12 col-sm-12 col-md-12">
             <div class="form-group col-xs-12 col-sm-6 col-md-6">
                 <label for="taskName">Task Name</label>
@@ -38,10 +45,14 @@
                     </div>
                 </div>
             </div>
-        </div>  
-
+        </div> 
         <div class="row col-xs-12 col-sm-12 col-md-12">
-                <table class="table mx-3 my-4">
+                <div class="input-group">
+                    <button type="button" class="btn btn-info mx-3" (click)=resetButton()>Reset Search Form</button>
+                </div>
+        </div> 
+        <div class="row col-xs-12 col-sm-12 col-md-12">
+                <table class="table table-bordered mx-3 my-4">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Task Name</th>
@@ -49,20 +60,26 @@
                             <th scope="col">Priority</th>
                             <th scope="col">Start Date</th>
                             <th scope="col">End Date</th>
-                            <th scope="col">Action</th>
+                            <th class="actionWidth" scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                        <tr *ngFor="let item of alltaskList | taskSearchPipe : task">
+                            <td>{{item.taskName}}</td>
+                            <td>{{getParentTaskName(item)}}</td>
+                            <td>{{item.priority}}</td>
+                            <td>{{item.startDate}}</td>
+                            <td>{{item.endDate}}</td>
+                            <td class="actionWidth">
+                                <button type="button" class="btn btn-info" (click)=editTask(item.taskId)>Edit Task</button>
+                                <button type="button" class="btn btn-secondary mx-2" (click)=endTask(item.taskId)>End Task</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-        </div>
+        </div> 
 </div>
+
 
 <button type="button" id="submitModalOpener" class="btn btn-primary" [hidden]="true" data-toggle="modal" data-target="#submitModal">
 </button>
@@ -88,7 +105,7 @@
       </div>
     </div>
   </div>
-
+</form>
 <div [hidden]="!screenLoader" class="text-align-center"> 
 	<div class="modal-backdropP"></div>
 	<div class="modalP">

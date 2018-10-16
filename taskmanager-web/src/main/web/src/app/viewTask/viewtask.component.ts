@@ -60,6 +60,29 @@ export class ViewTaskComponent implements OnInit, OnDestroy {
     }
   }
 
+  getParentTaskName(item: any){
+    var parentTaskName = '';
+    if(item !== null && item !== undefined){
+      if(item.parentTask !== null && item.parentTask !== undefined){
+        parentTaskName = item.parentTask.taskName;
+      }
+    }
+    return parentTaskName;
+  }
+
+  resetButton(){
+    this.task = {
+      "taskName":"",
+      "parentTaskName":"",
+      "priorityFrom":"",
+      "priorityTo":"",
+      "startDate":"",
+      "endDate":""
+    };
+    jQuery("#startDate").val("");
+    jQuery("#endDate").val("");
+  }
+
 }
 
 
