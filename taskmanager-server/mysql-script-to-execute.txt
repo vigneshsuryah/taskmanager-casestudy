@@ -15,16 +15,15 @@ CREATE TABLE tasks (
 	CONSTRAINT FK_TASKS FOREIGN KEY (parent_task_id) REFERENCES tasks (task_id)
 );
 
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('generate report of tasks',null,'2018-10-07','2018-10-10','15','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete the go perform',null,'2018-10-10','2018-10-12','30','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('sent artifacts email',null,'2018-10-11','2018-10-16','1','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete coding of jira task assigned',null,'2018-10-13','2018-10-23','0','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('perform unit testing',null,'2018-10-09','2018-10-19','26','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('fill the TDD document on the design change',null,'2018-10-10','2018-10-20','17','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('create db design',null,'2018-10-15','2018-10-19','15','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('create angular project structure',null,'2018-10-16','2018-10-21','16','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('perform code review',null,'2018-10-17','2018-10-26','19','A');
-insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('help peer resource on angular',null,'2018-10-20','2018-10-24','1','A');
-
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('generate report of tasks',null,'07/10/2018','10/10/2018','15','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete the go perform',null,'10/10/2018','12/10/2018','30','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('sent artifacts email',null,'11/10/2018','16/10/2018','1','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete coding of jira task assigned',null,'13/10/2018','23/10/2018','0','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('perform unit testing',null,'09/10/2018','19/10/2018','26','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('fill the TDD document on the design change',null,'10/10/2018','20/10/2018','17','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('create db design',null,'15/10/2018','19/10/2018','15','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('create angular project structure',null,'16/10/2018','21/10/2018','16','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('perform code review',null,'17/10/2018','26/10/2018','19','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('help peer resource on angular',null,'20/10/2018','24/10/2018','1','A');
 
 select * from tasks;

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AddTaskModule } from './addtask/addtask.module';
+import { ViewTaskModule } from './viewtask/viewtask.module';
 import { RequestOptions, RequestMethod, Headers } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'; 
 import { FormsModule } from '@angular/forms';
@@ -27,7 +28,7 @@ export class MyOptions extends RequestOptions {
     AppComponent
   ],
   imports: [
-    BrowserModule, FormsModule, CommonModule, AppRoutingModule, AddTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
+    BrowserModule, FormsModule, CommonModule, AppRoutingModule, AddTaskModule, ViewTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
   ],
   exports: [
     FormsModule

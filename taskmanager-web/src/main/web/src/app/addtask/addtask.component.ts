@@ -28,9 +28,12 @@ export class AddTaskComponent implements OnInit, OnDestroy {
   calendarToday: NgbCalendar
   alltaskList : any = [];
   errorShow : boolean = false;
+  screenLoader : boolean = false;
   errorMessage : string = '';
+  modalHeading : string = '';
+  modalBody : string = '';
 
-  constructor(calendar: NgbCalendar, config: NgbDatepickerConfig, appService : appService) {
+  constructor(calendar: NgbCalendar, config: NgbDatepickerConfig, public router: Router, private appService : appService) {
     this.fromDate = calendar.getToday();
     this.calendarToday = calendar;
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
@@ -38,7 +41,11 @@ export class AddTaskComponent implements OnInit, OnDestroy {
     config.minDate = {year:currentDate.getFullYear(), month:currentDate.getMonth()+1, day: currentDate.getDate()};
     config.maxDate = {year: 2099, month: 12, day: 31};
     config.outsideDays = 'hidden'; 
-    appService.getTasks().subscribe(data => this.alltaskList = data);
+    this.screenLoader = true;
+    appService.getTasks().subscribe((data :any) => {
+      this.alltaskList = data;
+      this.screenLoader = false;
+    });
   }
 
   ngOnInit() {
@@ -66,7 +73,31 @@ export class AddTaskComponent implements OnInit, OnDestroy {
       this.errorShow = true;
       this.errorMessage = 'Select Parent Task from the list available. Either the task name is edited or you have typed a custom task name.';
     }else{
-      
+      var submitAddTask = {
+        "taskName": this.task.taskName,
+        "startDate": this.convertDateJsonToString(this.fromDate),
+        "endDate": this.convertDateJsonToString(this.fromDate),
+        "priority": this.task.priority,
+        "status": "A",
+        "parentTask": {
+          "taskId" : this.task.parentTaskId
+        }
+      }
+      this.screenLoader = true;
+      this.appService.addTask(submitAddTask).subscribe(
+        (data: any) => {
+          this.screenLoader = false;
+          this.modalHeading = 'Yeah :-)';
+          this.modalBody = 'Task Added Successfully';
+          document.getElementById("submitModalOpener").click();
+        },
+        (err: any) => {
+            this.screenLoader = false;
+            this.modalHeading = 'Oh No !!!';
+            this.modalBody = 'Unexpected error occured during Add Task. Please try after some time.';
+            document.getElementById("submitModalOpener").click();        
+          }
+        );
     }
   }
 
@@ -102,6 +133,10 @@ export class AddTaskComponent implements OnInit, OnDestroy {
     this.toDate = this.calendarToday.getNext(this.calendarToday.getToday(), 'd', 10);
     jQuery("#parentTask").val("");
   }
+  
+  viewTaskScreen(){
+    this.router.navigate(['/viewtask']);
+  }
 
   /* Datepicker functions*/
   onDateSelection(date: NgbDate) {
@@ -129,7 +164,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
 
   convertDateJsonToString(json: any){
     if(json !== undefined && json !== null){
-      return json.year + '-' + json.month + '-' + json.day;
+      return json.day + '/' + json.month + '/' + json.year;
     }
   }
 
