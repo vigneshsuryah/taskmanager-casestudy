@@ -8,8 +8,12 @@ export class TaskSearchPipe implements PipeTransform{
                 if (filtertask.taskName && item.taskName.toLowerCase().indexOf(filtertask.taskName.toLowerCase()) === -1){
                     return false;
                 }
-                if (filtertask.parentTaskName && item.parentTask && item.parentTask.taskName && 
+                if (filtertask.parentTaskName && item.parentTask && item.parentTask.taskName &&
                     item.parentTask.taskName.toLowerCase().indexOf(filtertask.parentTaskName.toLowerCase()) === -1){
+                    return false;
+                }
+                if (filtertask.parentTaskName !== undefined && filtertask.parentTaskName !== null && filtertask.parentTaskName !== '' && 
+                    (item.parentTask === null || item.parentTask === undefined || item.parentTask.taskName === '')){
                     return false;
                 }
                 if (filtertask.startDate && item.startDate.toLowerCase().indexOf(filtertask.startDate.toLowerCase()) === -1){

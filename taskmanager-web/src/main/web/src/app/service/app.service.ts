@@ -11,7 +11,11 @@ import { RouterModule , Router } from '@angular/router';
 @Injectable()
 export class appService {
   
-    constructor(private http: Http, private router : Router) {} 
+    updatetask : any = {};
+    
+    constructor(private http: Http, private router : Router) {
+
+    } 
 
     getTasks(): Observable<string[]> {
         let headers = new Headers({ 'Accept': '*/*', 'Content-Type':'application/json' });

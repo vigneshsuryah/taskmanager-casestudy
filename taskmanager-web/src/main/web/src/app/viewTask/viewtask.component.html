@@ -71,8 +71,10 @@
                             <td>{{item.startDate}}</td>
                             <td>{{item.endDate}}</td>
                             <td class="actionWidth">
-                                <button type="button" class="btn btn-info" (click)=editTask(item.taskId)>Edit Task</button>
-                                <button type="button" class="btn btn-secondary mx-2" (click)=endTask(item.taskId)>End Task</button>
+                                <div *ngIf="item.status === 'A'">
+                                    <button type="button" class="btn btn-info" (click)=editTask(item)>Edit Task</button>
+                                    <button type="button" class="btn btn-secondary mx-2" (click)=endTask(item.taskId)>End Task</button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -81,11 +83,11 @@
 </div>
 
 
-<button type="button" id="submitModalOpener" class="btn btn-primary" [hidden]="true" data-toggle="modal" data-target="#submitModal">
+<button type="button" id="endTaskModalOpener" class="btn btn-primary" [hidden]="true" data-toggle="modal" data-target="#endTaskModal">
 </button>
 
 <!-- The Modal -->
-<div class="modal fade" role="dialog" id="submitModal" tabindex="-1">
+<div class="modal fade" role="dialog" id="endTaskModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- Modal Header -->
@@ -99,13 +101,13 @@
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)=resetButton()>Back To Add Task</button>
-          <button type="button" class="btn btn-success" (click)=viewTaskScreen()>Navigate to View Task</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)=backToViewTask()>Back To View Task</button>
         </div>
       </div>
     </div>
   </div>
 </form>
+
 <div [hidden]="!screenLoader" class="text-align-center"> 
 	<div class="modal-backdropP"></div>
 	<div class="modalP">

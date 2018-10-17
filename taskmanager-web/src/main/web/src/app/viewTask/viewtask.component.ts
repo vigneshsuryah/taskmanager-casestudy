@@ -23,9 +23,10 @@ export class ViewTaskComponent implements OnInit, OnDestroy {
   modalHeading : string = '';
   modalBody : string = '';
 
-  constructor(calendar: NgbCalendar, config: NgbDatepickerConfig, public router: Router, private appService : appService) {
+  constructor(calendar: NgbCalendar, config: NgbDatepickerConfig, public router: Router, public appService : appService) {
 
-    //this.screenLoader = true;
+    this.screenLoader = true;
+    this.appService.updatetask = null;
     appService.getTasks().subscribe((data :any) => {
       this.alltaskList = data;
       this.screenLoader = false;
@@ -83,7 +84,39 @@ export class ViewTaskComponent implements OnInit, OnDestroy {
     jQuery("#endDate").val("");
   }
 
+  endTask(taskId: string){
+    this.screenLoader = true;
+    this.appService.deleteTask(taskId).subscribe(
+      (data: any) => {
+        this.screenLoader = false;
+        this.modalHeading = 'Yeah :-)';
+        this.modalBody = 'Task Ended Successfully';
+        document.getElementById("endTaskModalOpener").click();
+      },
+      (err: any) => {
+          this.screenLoader = false;
+          this.modalHeading = 'Oh No !!!';
+          this.modalBody = 'Unexpected error occured during End Task. Please try after some time.';
+          document.getElementById("endTaskModalOpener").click();        
+        }
+      );
+  }
+
+  backToViewTask(){
+    this.screenLoader = true;
+    this.appService.getTasks().subscribe(
+      (data: any) => {
+        this.alltaskList = data;
+        this.screenLoader = false;
+      },
+      (err: any) => {
+          this.screenLoader = false;     
+        }
+      );
+  }
+
+  editTask(task: any){
+    this.appService.updatetask = task;
+    this.router.navigate(['/edittask']);
+  }
 }
-
-
-
