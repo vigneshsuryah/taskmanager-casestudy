@@ -11,6 +11,7 @@ import { NgbModal, NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootst
 import { appService } from './service/index';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
+import { CommonutilsModule } from './commonutils.module';
 
 export class MyOptions extends RequestOptions {
   constructor() {
@@ -28,10 +29,10 @@ export class MyOptions extends RequestOptions {
     AppComponent
   ],
   imports: [
-    BrowserModule, FormsModule, CommonModule, AppRoutingModule, UpdateTaskModule, ViewTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()
+    BrowserModule, AppRoutingModule, UpdateTaskModule, ViewTaskModule, HttpModule, HttpClientModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot(), CommonutilsModule.forRoot()
   ],
   exports: [
-    FormsModule
+    
   ],
   providers: [
     {

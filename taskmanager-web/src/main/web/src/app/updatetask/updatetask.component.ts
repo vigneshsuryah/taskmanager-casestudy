@@ -99,16 +99,28 @@ export class UpdateTaskComponent implements OnInit, OnDestroy {
       this.errorMessage = 'Select Parent Task from the list available. Either the task name is edited or you have typed a custom task name.';
     }else{
       if(this.flow === 'addtask'){
-        var submitAddTask = {
-          "taskName": this.task.taskName,
-          "startDate": this.convertDateJsonToString(this.fromDate),
-          "endDate": this.convertDateJsonToString(this.toDate),
-          "priority": this.task.priority,
-          "status": "A",
-          "parentTask": {
-            "taskId" : this.task.parentTaskId
-          }
-        };
+        var submitAddTask = {};
+        if(this.task.parentTaskId === '' || this.task.parentTaskId === null || this.task.parentTaskId === undefined){
+          submitAddTask = {
+            "taskName": this.task.taskName,
+            "startDate": this.convertDateJsonToString(this.fromDate),
+            "endDate": this.convertDateJsonToString(this.toDate),
+            "priority": this.task.priority,
+            "status": "A"
+          };
+        }else{
+          submitAddTask = {
+            "taskName": this.task.taskName,
+            "startDate": this.convertDateJsonToString(this.fromDate),
+            "endDate": this.convertDateJsonToString(this.toDate),
+            "priority": this.task.priority,
+            "status": "A",
+            "parentTask": {
+              "taskId" : this.task.parentTaskId === '' ? null: this.task.parentTaskId
+            }
+          };
+        }
+        
         this.screenLoader = true;
         this.appService.addTask(submitAddTask).subscribe(
           (data: any) => {
@@ -170,9 +182,11 @@ export class UpdateTaskComponent implements OnInit, OnDestroy {
     this.task.parentTaskId = event.item.taskId;
   }
 
-  clearParentId(){
-    this.task.parentTaskId = "";
-    this.selectedParentTaskObj = null;
+  clearParentId(event){
+    if (event.key !== "Enter") {
+      this.task.parentTaskId = "";
+      this.selectedParentTaskObj = null;
+    }
   }
 
   constructDateFromService(datestring: string){
@@ -196,7 +210,7 @@ export class UpdateTaskComponent implements OnInit, OnDestroy {
   }
   
   viewTaskScreen(){
-    this.router.navigate(['/viewtask']);
+    document.getElementById("view-task").click();
   }
 
   /* Datepicker functions*/

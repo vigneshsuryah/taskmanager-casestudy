@@ -7,12 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModule, NgbTypeaheadModule, NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
-import { TaskSearchPipe } from '../pipes/searchtask';
+import { CommonutilsModule } from '../commonutils.module';
 
 @NgModule({
-  imports: [ViewTaskRoutingModule, FormsModule, CommonModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot()],
-  declarations: [ViewTaskComponent, TaskSearchPipe],
-  exports: [ViewTaskComponent, FormsModule, TaskSearchPipe],
+  imports: [ViewTaskRoutingModule, FormsModule, CommonModule, NgbModule.forRoot(), NgbTypeaheadModule.forRoot(), CommonutilsModule.forRoot()],
+  declarations: [ViewTaskComponent],
+  exports: [ViewTaskComponent, FormsModule],
   providers: [appService]
 })
 
