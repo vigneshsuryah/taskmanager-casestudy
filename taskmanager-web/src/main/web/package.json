@@ -1,10 +1,10 @@
 {
-  "name": "np-app",
+  "name": "taskmanager-app",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --build-optimizer=false",
+    "build": "ng build --prod --base-href=/taskmanager-app/ --build-optimizer=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
