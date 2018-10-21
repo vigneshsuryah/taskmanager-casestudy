@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component'; 
 import { UpdateTaskModule } from './updatetask/updatetask.module'; 
-import { ViewTaskModule } from './viewtask/viewtask.module';
+import { ViewTaskModule } from './viewtasklist/viewtask.module';
 import { RequestOptions, RequestMethod, Headers } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'; 
 import { FormsModule } from '@angular/forms';
