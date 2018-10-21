@@ -1,0 +1,125 @@
+<form #viewTaskForm="ngForm" novalidate >
+<div class="row my-3 p-3 bg-white rounded box-shadow">
+        <br/><br/>    
+        <div class="row col-xs-12 col-sm-12 col-md-12">
+            <div class="h6 mx-3">Enter the field to Search for your task.</div>
+        </div>
+        <hr/>
+        <br/><br/>
+        <div class="row col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group col-xs-12 col-sm-6 col-md-6">
+                <label for="taskName">Task Name</label>
+                <input type="text" class="form-control" id="taskName" maxlength="50" name="taskName" #taskName="ngModel" [(ngModel)]="task.taskName">
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-6">
+                <label for="parentTaskName">Parent Task Name</label>
+                <input type="text" class="form-control" id="parentTaskName" maxlength="50" name="parentTaskName" #parentTaskName="ngModel" [(ngModel)]="task.parentTaskName">
+            </div>
+        </div>
+        <div class="row col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                <label for="priorityFrom">Priority From</label>
+                <input type="text" class="form-control" id="priorityFrom" maxlength="2" name="priorityFrom" #priorityFrom="ngModel" [(ngModel)]="task.priorityFrom">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                <label for="priorityTo">Priority To</label>
+                <input type="text" class="form-control" id="priorityTo" maxlength="2" name="priorityTo" #priorityTo="ngModel" [(ngModel)]="task.priorityTo">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                <label for="startDate">Start Date</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="startDate" [readonly]="true"
+                            name="startDate" [(ngModel)]="task.startDate" ngbDatepicker #startDate="ngbDatepicker" (dateSelect)="onDateSelectPicker($event,'start')"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary fa fa-calendar" (click)="startDate.toggle()" type="button"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                <label for="endDate">End Date</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="endDate" [readonly]="true"
+                            name="endDate" [(ngModel)]="task.endDate" ngbDatepicker #endDate="ngbDatepicker" (dateSelect)="onDateSelectPicker($event,'end')"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary fa fa-calendar" (click)="endDate.toggle()" type="button"></button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row col-xs-12 col-sm-12 col-md-12">
+                <div class="input-group">
+                    <button type="button" class="btn btn-info mx-3" (click)=resetButton()>Reset Search Form</button>
+                </div>
+        </div> 
+        <div class="row col-xs-12 col-sm-12 col-md-12">
+                <table class="table table-bordered mx-3 my-4">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Task Name</th>
+                            <th scope="col">Parent Task Name</th>
+                            <th scope="col">Priority</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th class="actionWidth" scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of alltaskList | taskSearchPipe : task">
+                            <td>{{item.taskName}}</td>
+                            <td>{{getParentTaskName(item)}}</td>
+                            <td>{{item.priority}}</td>
+                            <td>{{item.startDate}}</td>
+                            <td>{{item.endDate}}</td>
+                            <td class="actionWidth">
+                                <div *ngIf="item.status === 'A'">
+                                    <button type="button" class="btn btn-info" (click)=editTask(item)>Edit Task</button>
+                                    <button type="button" class="btn btn-secondary mx-2" (click)=endTask(item.taskId)>End Task</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div> 
+</div>
+
+
+<button type="button" id="endTaskModalOpener" class="btn btn-primary" [hidden]="true" data-toggle="modal" data-target="#endTaskModal">
+</button>
+
+<!-- The Modal -->
+<div class="modal fade" role="dialog" id="endTaskModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{modalHeading}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          {{modalBody}}
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)=backToViewTask()>Back To View Task</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div [hidden]="!screenLoader" class="text-align-center"> 
+	<div class="modal-backdropP"></div>
+	<div class="modalP">
+		<div id="fountainG">
+			<div id="fountainG_1" class="fountainG"></div>
+			<div id="fountainG_2" class="fountainG"></div>
+			<div id="fountainG_3" class="fountainG"></div>
+			<div id="fountainG_4" class="fountainG"></div>
+			<div id="fountainG_5" class="fountainG"></div>
+			<div id="fountainG_6" class="fountainG"></div>
+			<div id="fountainG_7" class="fountainG"></div>
+			<div id="fountainG_8" class="fountainG"></div>
+		</div>
+	</div>
+</div>

@@ -1,10 +1,10 @@
 {
-  "name": "np-app",
+  "name": "taskmanager-app",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --build-optimizer=false",
+    "build": "ng build --prod --base-href=/taskmanager-app/ --build-optimizer=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^3.3.0",
     "bootstrap": "^4.1.3",
     "bootstrap-datepicker": "^1.8.0",
     "core-js": "^2.5.4",

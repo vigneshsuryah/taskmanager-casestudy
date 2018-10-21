@@ -79,7 +79,7 @@
 			              <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory >
 			              <resources>
 			                  <resource>
-			                      <directory>${project.parent.basedir}/taskmanager-web/src/main/web/dist/np-app/</directory >
+			                      <directory>${project.parent.basedir}/taskmanager-web/src/main/web/dist/taskmanager-app/</directory >
 			                  </resource>
 			              </resources>
 			          </configuration>
