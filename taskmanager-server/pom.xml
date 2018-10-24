@@ -7,7 +7,7 @@
   </parent>
   <artifactId>taskmanager-server</artifactId>
   <packaging>war</packaging>
-  
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -64,6 +64,11 @@
         <version>${project.version}</version>
         <scope>runtime</scope>
     </dependency>
+    <dependency>
+	    <groupId>com.spotify</groupId>
+	    <artifactId>docker-maven-plugin</artifactId>
+	    <version>1.2.0</version>
+	</dependency>
 	</dependencies>
 	
 	<build>
@@ -106,6 +111,39 @@
 		          <warName>taskmanager-app</warName>
 		        </configuration>
       		</plugin>
+      		
+		    <plugin>
+		      <groupId>com.spotify</groupId>
+		      <artifactId>docker-maven-plugin</artifactId>
+		      <version>1.2.0</version>
+		      <executions>
+			    <execution>
+			      <id>default</id>
+			      <goals>
+			        <goal>build</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+		      <configuration>
+		      	<dockerHost>http://172.18.2.50:2375</dockerHost>
+		      	<repository>vigneshsuryah/taskmanager-app</repository>
+		        <imageName>vs-taskmanager-app-image</imageName>
+		        <tag>${project.version}</tag>
+		        <dockerDirectory>docker</dockerDirectory>
+		        <!--
+		        <baseImage>java</baseImage>
+		        <entryPoint>["java", "-jar", "/taskmanager-app.war"]</entryPoint>
+		         copy the service's jar file from target into the root directory of the image 
+		         --> 
+		        <resources>
+		           <resource>
+		             <targetPath>/</targetPath>
+		             <directory>${project.build.directory}</directory>
+		             <include>taskmanager-app.war</include>
+		           </resource>
+		        </resources>
+		      </configuration>
+		    </plugin>
         </plugins>
     </build>
 </project>
