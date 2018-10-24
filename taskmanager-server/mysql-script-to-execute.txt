@@ -28,9 +28,8 @@ insert into tasks (task_name, parent_task_id, start_date, end_date, priority, st
 
 select * from tasks;
 
-dockerx run -p 8085:8085 -t vs-taskmanager-app-image:latest
-dockerx run -p 8185:8185 -t vs-taskmanager-app-image:latest
-
+dockerx run -p 8185:8185 vs-taskmanager-app-image:latest
 
 dockerx ps -a -q --filter ancestor=vs-taskmanager-app-image
-dockerx rm $(docker stop $(docker ps -a -q --filter ancestor=ancestor=vs-taskmanager-app-image))
+
+dockerx stop $(docker -H=172.18.2.50:2375 ps -a -q --filter ancestor=ancestor=vs-taskmanager-app-image)
