@@ -15,10 +15,13 @@
 <li>dockerx run -p 8090:8085 vs-taskmanager-app-image:latest	[to start the image, we generated]</li>
 <li>dockerx exec -it <container id> sh	[to check the below URL's are working in the curl]</li>
 </ul>	
-To check whether application loaded correctly: curl http://localhost:8090/hometest
-Service: curl http://localhost:8090/api/tasks
-UI Home page: curl http://localhost:8090/index.html
-	
+
+<ul>
+<li>To check whether application loaded correctly: curl http://localhost:8090/hometest</li>
+<li>Service: curl http://localhost:8090/api/tasks</li>
+<li>UI Home page: curl http://localhost:8090/index.html</li>
+</ul>	
+
 The above URLs can be accessed in the host machine with the Port Forwarding settings of VM toolbox [Settings -> Network -> Port Forwarding -> HOSTIP/HOSTPORT 127.0.0.1:8090 to GUESTIP/GUESTPORT :8090]
 
 <b>Commands for local development:</b>
