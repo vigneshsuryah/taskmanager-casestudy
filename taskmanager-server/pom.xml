@@ -130,7 +130,7 @@
 		      	<repository>vigneshsuryah/taskmanager-app</repository>
 		        <imageName>vs-taskmanager-app-image</imageName>
 		        <tag>${project.version}</tag>
-		        <dockerDirectory>docker</dockerDirectory>
+		        <dockerDirectory>.</dockerDirectory>
 		        <resources>
 		           <resource>
 		             <targetPath></targetPath>
