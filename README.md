@@ -4,7 +4,7 @@ Build and package spring boot and angular6 into a jar file
 taskmanager-server - contains the REST end-points for application
 taskmanager-web - contains the angular 6 cli code for application
 
-Commands for final build:
+<b>Commands for final build:</b>
 
 Maven build: clean install -e	[The UI code is build using "frontend-maven-plugin" and is packed inside the JAR artifacts itself. Refer taskmanager-web pom.xml]
 Docker build: package docker:build	[spotify "docker-maven-plugin" is used to create image in the remote docker. <dockerHost> configuration : pom.xml of taskmanager-server]
