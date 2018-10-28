@@ -125,10 +125,11 @@
 			    </execution>
 			  </executions>
 		      <configuration>
-		      	<!--<dockerHost>http://172.18.2.50:2375</dockerHost>-->
-				<dockerHost>https://192.168.99.100:2376</dockerHost>
+		    	  <!--<dockerHost>http://172.18.2.50:2375</dockerHost>-->
+				    <dockerHost>https://192.168.99.100:2376</dockerHost>
 		      	<repository>vigneshsuryah/taskmanager-app</repository>
 		        <imageName>vs-taskmanager-app-image</imageName>
+		        <baseImage>java</baseImage>
 		        <tag>${project.version}</tag>
 		        <dockerDirectory>.</dockerDirectory>
 		        <resources>
