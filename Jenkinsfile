@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-		sh 'mvn -Dmaven.test.failure.ignore=true install'
-            }
+        stage('SCM Checkout') {
+	    git 'https://github.com/vigneshsuryah/taskmanager-casestudy.git'
+        }
+	stage('Compile-Package') {
+	    sh 'mvn package'
         }
         stage('Test') {
             steps {
