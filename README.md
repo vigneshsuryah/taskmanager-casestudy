@@ -8,7 +8,7 @@
 <ul>
 <li>Maven build: clean install -e	[The UI code is build using "frontend-maven-plugin" and is packed inside the JAR artifacts itself. Refer taskmanager-web pom.xml]</li>
 <li>Docker build: package docker:build	[spotify "docker-maven-plugin" is used to create image in the remote docker. <dockerHost> configuration : pom.xml of taskmanager-server]</li>
-<ul>
+</ul>
 
 <b>Commands for Docker execution:</b>
 <ul>
