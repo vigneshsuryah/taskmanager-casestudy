@@ -4,6 +4,7 @@ node {
     }
 	stage('Compile-Package') {
 		def mvnHome = tool name: 'maven', type: 'maven'
+		sh 'cd taskmanager-server'
 		sh "${mvnHome}/bin/mvn clean install"
     }
 }
