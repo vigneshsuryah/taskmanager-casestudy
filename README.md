@@ -4,6 +4,8 @@
 <h4>taskmanager-server - contains the REST end-points for application </h4>
 <h4>taskmanager-web - contains the angular 6 cli code for application</h4>
 
+Repo: https://github.com/vigneshsuryah/taskmanager-casestudy.git
+
 <b>Commands for final build:</b>
 <ul>
 <li>Maven build: clean install -e	[The UI code is build using "frontend-maven-plugin" and is packed inside the JAR artifacts itself. Refer taskmanager-web pom.xml]</li>
@@ -28,6 +30,12 @@ The above URLs can be accessed in the host machine with the Port Forwarding sett
 <ul>
 <li>spring boot in taskmanager-server folder: spring-boot:run</li>
 <li>angular ui in web folder of taskmanager-web: npm install -> npm start</li>
+</ul>
+
+<b>Jenkins:</b>
+<ul>
+<li>Branches to build: */integration</li>
+<li>Script Path: taskmanager-server/Jenkinsfile</li>
 </ul>
 
 <b>Note: </b>
