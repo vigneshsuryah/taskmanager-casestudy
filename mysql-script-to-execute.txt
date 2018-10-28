@@ -1,0 +1,29 @@
+#start the database in-secure
+#mysqld --initialize-insecure
+
+CREATE DATABASE TASKMANAGER;
+
+CREATE TABLE tasks (
+	task_id BIGINT(10) NOT NULL AUTO_INCREMENT,
+	task_name VARCHAR(50) NULL DEFAULT NULL,
+	parent_task_id BIGINT(10) NULL DEFAULT NULL,
+	start_date VARCHAR(10) NULL DEFAULT NULL,
+	end_date VARCHAR(10) NULL DEFAULT NULL,
+	priority VARCHAR(2) NULL DEFAULT NULL,
+	status VARCHAR(1) NULL DEFAULT NULL,
+	PRIMARY KEY (task_id),
+	CONSTRAINT FK_TASKS FOREIGN KEY (parent_task_id) REFERENCES tasks (task_id)
+);
+
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('generate report of tasks',null,'07/10/2018','10/10/2018','15','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete the go perform',null,'10/10/2018','12/10/2018','30','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('sent artifacts email',null,'11/10/2018','16/10/2018','1','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('complete coding of jira task assigned',null,'13/10/2018','23/10/2018','0','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('perform unit testing',null,'09/10/2018','19/10/2018','26','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('fill the TDD document on the design change',null,'10/10/2018','20/10/2018','17','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('create db design',null,'15/10/2018','19/10/2018','15','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('create angular project structure',null,'16/10/2018','21/10/2018','16','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('perform code review',null,'17/10/2018','26/10/2018','19','A');
+insert into tasks (task_name, parent_task_id, start_date, end_date, priority, status) values('help peer resource on angular',null,'20/10/2018','24/10/2018','1','A');
+
+select * from tasks;

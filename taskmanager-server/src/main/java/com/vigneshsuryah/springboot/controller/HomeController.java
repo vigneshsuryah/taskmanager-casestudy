@@ -10,7 +10,6 @@ public class HomeController {
 	
 	@GetMapping
 	public String home() {
-		System.out.println("Hello");
 		return "forward:/index.html";
 	}
 
