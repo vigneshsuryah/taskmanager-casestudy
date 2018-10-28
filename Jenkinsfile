@@ -1,12 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('SCM Checkout') {
-	    git 'https://github.com/vigneshsuryah/taskmanager-casestudy.git'
-        }
+    stage('SCM Checkout') {
+		steps {
+			git 'https://github.com/vigneshsuryah/taskmanager-casestudy.git'
+		}
+    }
 	stage('Compile-Package') {
-	    def mvnHome = tool name: 'maven', type: 'maven'
-	    sh "${mvnHome}/bin/mvn package"
+		steps {
+			def mvnHome = tool name: 'maven', type: 'maven'
+			sh "${mvnHome}/bin/mvn package'
+		}
         }
         stage('Test') {
             steps {
