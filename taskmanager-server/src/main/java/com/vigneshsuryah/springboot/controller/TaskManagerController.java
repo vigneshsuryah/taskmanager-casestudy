@@ -24,6 +24,11 @@ public class TaskManagerController {
 		this.taskManagerService = taskManagerService;
 	}
 	
+	@GetMapping("/hometest")
+	public String testHome() {
+		return "Task Manager App - Test String - Vignesh Suryah";
+	}
+	
 	@GetMapping("/api/tasks")
 	public List<Task> getTasks() {
 		List<Task> tasks = taskManagerService.retriveTasks();
