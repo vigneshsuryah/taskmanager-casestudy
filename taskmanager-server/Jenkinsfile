@@ -1,9 +1,24 @@
-node {
-    stage('SCM Checkout') {
-			git 'https://github.com/vigneshsuryah/taskmanager-casestudy.git'
+pipeline {
+    agent {
+        label "windows"
     }
-	stage('Compile-Package') {
-		def mvnHome = tool name: 'maven', type: 'maven'
-		sh "${mvnHome}/bin/mvn.cmd clean install"
+    tools {
+        maven 'maven'
+        jdk 'JAVA-jdk'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                bat '''
+                    echo "PATH = %PATH%"
+                    echo "M2_HOME = %M2_HOME%"
+                '''
+            }
+        }
+        stage ('Build') {
+            steps {
+                    bat 'mvn install'
+            }
+        }
     }
 }
