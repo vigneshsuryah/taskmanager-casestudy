@@ -1,4 +1,4 @@
-# Task Manager Casestudy IIHT - Vignesh Suryah
+# Task Manager Casestudy IIHT - Author: Vignesh Suryah
 <h2>Build and package spring boot and angular6 into a jar file</h2>
 
 <h4>taskmanager-server - contains the REST end-points for application </h4>
