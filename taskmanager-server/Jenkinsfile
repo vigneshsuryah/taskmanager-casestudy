@@ -1,11 +1,11 @@
 pipeline {
-
+    agent any
     tools {
         maven 'maven'
         jdk 'JAVA-jdk'
     }
     stages {
-        stage ('Initialize') {
+        stage ('Initialize-Variables') {
             steps {
                 bat '''
                     echo "PATH = %PATH%"
@@ -16,6 +16,11 @@ pipeline {
         stage ('Build') {
             steps {
                     bat 'mvn install'
+            }
+        }
+        stage ('Docker-Build') {
+            steps {
+                    bat 'mvn package dockerfile:build'
             }
         }
     }
